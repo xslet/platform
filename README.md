@@ -179,6 +179,6 @@ Copyright (C) 2016 Takayuki Sato
 This program is free software under [MIT][mit-url] License.
 See the file LICENSE in this distribution for more details.
 
-[npm-image]: http://img.shields.io/badge/npm-v0.0.0-blue.svg
+[npm-image]: http://img.shields.io/badge/npm-v0.1.0-blue.svg
 [npm-url]: https://www.npmjs.org/package/@xslet/platform/
 [mit-url]: https://opensource.org/licenses/MIT
