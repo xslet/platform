@@ -44,9 +44,9 @@
     var val = xslet.platform.os[key];
     var typ = typeof val;
 
-    text += 'os.' + key + ' : {' + typ + '} : ';
+    text += 'os.' + key + ' : {' + typ + '} ';
     if (typ !== 'function') {
-      text += val;
+      text += ': ' + val;
     }
 
     text += '</li>';
