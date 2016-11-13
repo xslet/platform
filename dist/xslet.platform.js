@@ -13,7 +13,7 @@
 
 (function(){
   'use strict';
-  setPlatform(xslet, window);
+  definePlatform(xslet, window);
 
 /*
  * Copyright (C) 2016 xslet project.
@@ -21,7 +21,7 @@
  */
 
 
-function setPlatform(xslet, window) {
+function definePlatform(xslet, window) {
   var userAgent = window.navigator.userAgent.toUpperCase();
   var htmlTag = window.document.getElementsByTagName('html')[0];
 

@@ -1,9 +1,13 @@
 'use strict';
 
+var userAgent = require('./fixtures/userAgent.data')[2].userAgent;
+var window = require('jsdom').jsdom('', { userAgent: userAgent }).defaultView;
+var definePlatform = require('../../src/definePlatform');
+var chai = require('chai');
 var expect = chai.expect;
 
 var xslet = {};
-setPlatform(xslet, window);
+definePlatform(xslet, window);
 
 var uaName = xslet.platform.ua.name;
 var uaVersion = xslet.platform.ua.version;
@@ -15,7 +19,7 @@ var osVersion = xslet.platform.os.version;
 var greaterOsVersion = '1' + osVersion;
 var lessOsVersion = '0.0';
 
-describe('setPlatform', function() {
+describe('definePlatform', function() {
 
   it('xslet.platform.ua.lt', function(done) {
     expect(xslet.platform.ua.lt(uaName, uaVersion)).to.be.false;

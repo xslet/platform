@@ -9,7 +9,7 @@ var detectOS = require('./lib/detectOS');
 var compareVersions = require('./lib/compareVersions');
 var setClassToHtmlTag = require('./lib/setClassToHtmlTag');
 
-function setPlatform(xslet, window) {
+function definePlatform(xslet, window) {
   var userAgent = window.navigator.userAgent.toUpperCase();
   var htmlTag = window.document.getElementsByTagName('html')[0];
 
@@ -259,4 +259,4 @@ function setPlatform(xslet, window) {
   });
 }
 
-module.exports = setPlatform;
+module.exports = definePlatform;

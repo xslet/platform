@@ -14,7 +14,7 @@ const path = require('path')
 
 var srcfiles = [
   'res/header.forweb',
-  'src/setPlatform.js',
+  'src/definePlatform.js',
   'src/lib/detectUA.js',
   'src/lib/detectOS.js',
   'src/lib/getVersion.js',

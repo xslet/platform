@@ -2,7 +2,7 @@
   "name": "@xslet/platform",
   "version": "0.1.0",
   "description": "Gets platform informations from browser's user agent.",
-  "main": "src/setPlatform.js",
+  "main": "src/definePlatform.js",
   "scripts": {
     "test": "gulp test"
   },

@@ -13,4 +13,4 @@
 
 (function(){
   'use strict';
-  setPlatform(xslet, window);
+  definePlatform(xslet, window);
