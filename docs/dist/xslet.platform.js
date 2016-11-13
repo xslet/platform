@@ -463,6 +463,7 @@ function detectOS(useragent) {
 /**
  * Gets version number string from user agent string in upper case.
  *
+ * @private
  * @param useragent {string} - The user agent string in upper case.
  * @param key {string} - The string which takes place before the version
  *   number string.
@@ -582,6 +583,14 @@ function setNameAndVersion(obj, candids, name, version) {
 
 'use strict';
 
+/**
+ * Sets user agent informations to class attribute of HTML tag.
+ *
+ * @private
+ * @param htmlTag {HTMLElement} - The HTML tag.
+ * @param ua {object} - An object which has the browser informations.
+ * @param os {object} - An object which has the OS informations.
+ */
 function setClassToHtmlTag(htmlTag, ua, os) {
   var cls = htmlTag.className || '';
   if (cls) {

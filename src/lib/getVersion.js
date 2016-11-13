@@ -8,6 +8,7 @@
 /**
  * Gets version number string from user agent string in upper case.
  *
+ * @private
  * @param useragent {string} - The user agent string in upper case.
  * @param key {string} - The string which takes place before the version
  *   number string.
