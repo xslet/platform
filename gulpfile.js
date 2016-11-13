@@ -83,7 +83,8 @@ fun.copyDistToDocs = () =>
       .pipe(gulp.dest('docs/dist'))
 
 fun.copyTestToDocs = () =>
-  gulp.src('test/web/**')
+  gulp.src('test/web/index.html')
+      .pipe(replace(/( |\n)*<hr\/>( |\n)*<footer>(.|\n)*<\/footer>/, ''))
       .pipe(gulp.dest('docs/test/web'))
 
 fun.test = () =>
