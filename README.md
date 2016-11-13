@@ -3,10 +3,20 @@
 
 Gets platform informations of the Web browser.
 
+Build
+-----
+
+Build this module:
+
+```sh
+$ gulp build
+```
+
+
 Usage
 -----
 
-Load this module in browser:
+Load this module in a browser:
 
 ```js
 <script src="xslet.platform.min.js"></script>
@@ -170,6 +180,11 @@ Is used to change style applications for each OS.
 #### <u>html.OS-*NAME*-*VERSION*</u>
 
 Is used to change style applications for each version of OSs.
+
+Test on browsers
+----------------
+
+Open this page: [test/web/index.html](test/web/index.html).
 
 
 License

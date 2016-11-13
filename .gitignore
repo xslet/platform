@@ -3,11 +3,6 @@ logs
 *.log
 npm-debug.log*
 
-# Product directories and files
-dist
-docs
-test/**/*.js
-
 # Coverage directory used by tools like istanbul
 coverage
 

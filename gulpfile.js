@@ -30,7 +30,7 @@ var destfile = 'dist/xslet.platform.js'
 var minifile = 'dist/xslet.platform.min.js'
 
 
-fun.build = [['clean', [['webify', 'lint', ['minify', 'makedoc'] ]] ]]
+fun.build = [['clean', [['webify', 'lint', 'minify', 'makedoc' ]] ]]
 fun.build.description = 'Makes product js files and document files.'
 
 fun.clean = ['cleanDest', 'cleanTest', 'cleanDocs']
@@ -71,10 +71,20 @@ fun.lint = () =>
       .pipe(eslint())
       .pipe(eslint.format())
 
-fun.makedoc = done =>
+fun.makedoc = [ 'jsdoc', 'copyDistToDocs', 'copyTestToDocs' ]
+
+fun.jsdoc = done =>
   gulp.src([destfile, 'README.md'])
       .pipe(plumber())
       .pipe(jsdoc(require('./.jsdoc.json'), done))
+
+fun.copyDistToDocs = () =>
+  gulp.src('dist/**')
+      .pipe(gulp.dest('docs/dist'))
+
+fun.copyTestToDocs = () =>
+  gulp.src('test/web/**')
+      .pipe(gulp.dest('docs/test/web'))
 
 fun.test = () =>
   gulp.src(testfiles)

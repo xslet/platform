@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8"/>
+ <title>xslet.platform Test</title>
+ <link  href="../../../node_modules/mocha/mocha.css" rel="stylesheet"/>
+ <script src="../../../node_modules/mocha/mocha.js"></script>
+ <script src="../../../node_modules/chai/chai.js"></script>
+</head>
+<body>
+ <div id="mocha"></div>
+ <script>mocha.setup('bdd')</script>
+ <script src="../fixtures/userAgent.data.js"></script>
+ <script src="detectOS.js"></script>
+ <script src="getVersion.js"></script>
+ <script src="setNameAndVersion.js"></script>
+ <script src="detectOS.test.js"></script>
+ <script>
+  mocha.checkLeaks();
+  mocha.run();
+ </script>
+</body>
+</html>
