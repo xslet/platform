@@ -2,8 +2,6 @@
  * Copyright (C) 2016 xslet project.
  * This software is released under the MIT license.
  */
-
-
 function definePlatform(xslet, window) {
   var userAgent = window.navigator.userAgent.toUpperCase();
   var htmlTag = window.document.getElementsByTagName('html')[0];
@@ -253,4 +251,3 @@ function definePlatform(xslet, window) {
     },
   });
 }
-

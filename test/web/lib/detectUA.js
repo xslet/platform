@@ -3,8 +3,6 @@
  * This software is released under the MIT license.
  */
 
-
-
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the browser informations.
@@ -93,4 +91,3 @@ function detectUA(useragent) {
   setNameAndVersion(ua, candids, 'UNKNOWN', '');
   return ua;
 }
-

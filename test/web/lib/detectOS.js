@@ -3,8 +3,6 @@
  * This software is released under the MIT license.
  */
 
-
-
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the OS informations.
@@ -81,4 +79,3 @@ function detectOS(useragent) {
   Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
   return os;
 }
-

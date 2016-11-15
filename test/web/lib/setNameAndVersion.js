@@ -3,7 +3,6 @@
  * This software is released under the MIT license.
  */
 
-
 /**
  * Sets the name, the version and boolean flags of candidate names to the
  * object.
@@ -30,4 +29,3 @@ function setNameAndVersion(obj, candids, name, version) {
     Object.defineProperty(obj, candids[i], { enumerable: true, value: false });
   }
 }
-

@@ -985,4 +985,3 @@ var userAgentList = [
     os: { name: 'LINUX', version: '' },
   },
 ];
-

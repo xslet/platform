@@ -15,12 +15,6 @@
   'use strict';
   definePlatform(xslet, window);
 
-/*
- * Copyright (C) 2016 xslet project.
- * This software is released under the MIT license.
- */
-
-
 function definePlatform(xslet, window) {
   var userAgent = window.navigator.userAgent.toUpperCase();
   var htmlTag = window.document.getElementsByTagName('html')[0];
@@ -272,13 +266,6 @@ function definePlatform(xslet, window) {
 }
 
 
-/*
- * Copyright (C) 2016 xslet project.
- * This software is released under the MIT license.
- */
-
-
-
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the browser informations.
@@ -369,13 +356,6 @@ function detectUA(useragent) {
 }
 
 
-/*
- * Copyright (C) 2016 xslet project.
- * This software is released under the MIT license.
- */
-
-
-
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the OS informations.
@@ -454,12 +434,6 @@ function detectOS(useragent) {
 }
 
 
-/*
- * Copyright (C) 2016 xslet project.
- * This software is released under the MIT license.
- */
-
-
 /**
  * Gets version number string from user agent string in upper case.
  *
@@ -492,12 +466,6 @@ function getVersion(useragent, key, num) {
 
   return version.slice(1);
 }
-
-
-/*
- * Copyright (C) 2016 xslet project.
- * This software is released under the MIT license.
- */
 
 
 /**
@@ -547,12 +515,6 @@ function toInteger(v) {
 }
 
 
-/*
- * Copyright (C) 2016 xslet project.
- * This software is released under the MIT license.
- */
-
-
 /**
  * Sets the name, the version and boolean flags of candidate names to the
  * object.
@@ -580,8 +542,6 @@ function setNameAndVersion(obj, candids, name, version) {
   }
 }
 
-
-'use strict';
 
 /**
  * Sets user agent informations to class attribute of HTML tag.
@@ -612,6 +572,5 @@ function setClassToHtmlTag(htmlTag, ua, os) {
 
   htmlTag.className = cls;
 }
-
 
 }());

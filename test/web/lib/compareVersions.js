@@ -3,7 +3,6 @@
  * This software is released under the MIT license.
  */
 
-
 /**
  * Compares the name and version in the specified object to the name and the
  * version specified as the second and third arguments.
@@ -49,4 +48,3 @@ function compareVersions(obj, name, version) {
 function toInteger(v) {
   return parseInt(v);
 }
-

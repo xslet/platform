@@ -37,24 +37,25 @@ fun.clean = ['cleanDest', 'cleanTest', 'cleanDocs']
 fun.clean.description = 'Cleans all product files.'
 
 fun.cleanDest = done => del(['dist/**'], done)
-fun.cleanTest = done => del(['test/web/**/*.js', 'coverage/**'], done);
+fun.cleanTest = done => del(['test/web/**/*.js', 'coverage/**'], done)
 fun.cleanDocs = done => del(['docs/**'], done)
 
 fun.webify = ['webifyDest', 'webifyTest']
 
 fun.webifyDest = () =>
   gulp.src(srcfiles)
-      .pipe(replace(/\n(module\.exports *=.*\n)+/g, '\n'))
-      .pipe(replace(/\n(.*= *require *\(.*\n)+/g, '\n'))
-      .pipe(replace(/\n(["']use strict["'];.*\n)+/g, '\n'))
+      .pipe(replace(/(^|\n)(module\.exports *=.*\n)+/g, ''))
+      .pipe(replace(/(^|\n)(.*[;= (]require *\(.*\n)+/g, ''))
+      .pipe(replace(/(^|\n)(["']use strict["'];.*\n)+/g, ''))
+      .pipe(replace(/(^|\n)\/\* *\n \* *Copyright.*\n.*\n *\*\/ *\n/, ''))
       .pipe(concat(path.basename(destfile)))
       .pipe(gulp.dest(path.dirname(destfile)))
 
 fun.webifyTest = () =>
   gulp.src(['src/**/*.js', 'test/node/**/*.js'])
-      .pipe(replace(/\n(module\.exports *=.*\n)+/g, '\n'))
-      .pipe(replace(/\n(.*= *require *\(.*\n)+/g, '\n'))
-      .pipe(replace(/\n(["']use strict["'];.*\n)+/g, '\n'))
+      .pipe(replace(/(^|\n)(module\.exports *=.*\n)+/g, ''))
+      .pipe(replace(/(^|\n)(.*[;= (]require *\(.*\n)+/g, ''))
+      .pipe(replace(/(^|\n)(["']use strict["'];.*\n)+/g, ''))
       .pipe(gulp.dest('./test/web'))
 
 fun.minify = () =>

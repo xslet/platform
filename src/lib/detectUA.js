@@ -5,7 +5,7 @@
 
 'use strict';
 
-var getVersion = require('./getVersion')
+var getVersion = require('./getVersion');
 var setNameAndVersion = require('./setNameAndVersion');
 
 /**

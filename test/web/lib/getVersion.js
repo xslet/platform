@@ -3,7 +3,6 @@
  * This software is released under the MIT license.
  */
 
-
 /**
  * Gets version number string from user agent string in upper case.
  *
@@ -36,4 +35,3 @@ function getVersion(useragent, key, num) {
 
   return version.slice(1);
 }
-

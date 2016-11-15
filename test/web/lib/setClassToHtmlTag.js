@@ -1,4 +1,7 @@
-'use strict';
+/*
+ * Copyright (C) 2016 xslet project.
+ * This software is released under the MIT license.
+ */
 
 /**
  * Sets user agent informations to class attribute of HTML tag.
@@ -29,4 +32,3 @@ function setClassToHtmlTag(htmlTag, ua, os) {
 
   htmlTag.className = cls;
 }
-

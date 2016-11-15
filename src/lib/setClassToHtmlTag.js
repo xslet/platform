@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2016 xslet project.
+ * This software is released under the MIT license.
+ */
+
 'use strict';
 
 /**

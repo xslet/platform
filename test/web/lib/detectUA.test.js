@@ -1,5 +1,3 @@
-'use strict';
-
 var expect = chai.expect;
 
 function expectUA(ua, name) {
