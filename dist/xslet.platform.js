@@ -15,6 +15,12 @@
   'use strict';
   definePlatform(xslet, window);
 
+/**
+ * Defines `xslet.platform` namespace.
+ *
+ * @param xslet {object} - `xslet` namespace object.
+ * @param window {Window} - A Window object in DOM.
+ */
 function definePlatform(xslet, window) {
   var userAgent = window.navigator.userAgent.toUpperCase();
   var htmlTag = window.document.getElementsByTagName('html')[0];
