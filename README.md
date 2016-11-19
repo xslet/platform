@@ -1,4 +1,4 @@
-# [@xslet/platform](repo-url) [![Github.io][io-image]][io-url] [![NPM version][npm-image]][npm-url] [![MIT License][mit-image]][mit-url]
+# [@xslet/platform][repo-url] [![Github.io][io-image]][io-url] [![NPM version][npm-image]][npm-url] [![MIT License][mit-image]][mit-url]
 
 Gets platform informations of the Web browser.
 
