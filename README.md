@@ -1,5 +1,4 @@
-@xslet/platform [![NPM version][npm-image]][npm-url]
-===============
+# [@xslet/platform](repo-url) [![Github.io][io-image]][io-url] [![NPM version][npm-image]][npm-url] [![MIT License][mit-image]][mit-url]
 
 Gets platform informations of the Web browser.
 
@@ -186,7 +185,6 @@ Test on browsers
 
 Open this page: [test/web/index.html](test/web/index.html).
 
-
 License
 -------
 Copyright (C) 2016 Takayuki Sato
@@ -196,4 +194,9 @@ See the file LICENSE in this distribution for more details.
 
 [npm-image]: http://img.shields.io/badge/npm-v0.1.0-blue.svg
 [npm-url]: https://www.npmjs.org/package/@xslet/platform/
+[mit-image]: http://img.shields.io/badge/license-MIT-green.svg
 [mit-url]: https://opensource.org/licenses/MIT
+[io-image]: http://img.shields.io/badge/HP-github.io-ffbbbb.svg
+[io-url]: https://xslet.github.io/platform/
+[repo-url]: https://github.com/xslet/platform
+
