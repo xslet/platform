@@ -4,7 +4,8 @@
   "description": "Gets platform informations from browser's user agent.",
   "main": "src/definePlatform.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "gulp coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/xslet/platform#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.15",
     "del": "^2.2.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.0",
