@@ -199,6 +199,6 @@ See the file LICENSE in this distribution for more details.
 [npm-url]: https://www.npmjs.org/package/@xslet/platform/
 [mit-image]: http://img.shields.io/badge/license-MIT-green.svg
 [mit-url]: https://opensource.org/licenses/MIT
-[coverage-image]: https://coveralls.io/repos/github/xslet/platform/badge.svg?branch=coveralls
-[coverage-url]: https://coveralls.io/github/xslet/platform?branch=coveralls
+[coverage-image]: https://coveralls.io/repos/github/xslet/platform/badge.svg?branch=master
+[coverage-url]: https://coveralls.io/github/xslet/platform?branch=master
 G
