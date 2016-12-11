@@ -11,7 +11,7 @@ const plumber = require('gulp-plumber')
 const mocha = require('gulp-spawn-mocha')
 
 const path = require('path')
-const EOL = '\n';
+const EOL = '\n'
 
 var filesForWeb = [
   'res/header.forweb',
@@ -33,11 +33,12 @@ var testToolsForWeb = [
 
 var srcfiles = filesForWeb.filter(file => path.extname(file) === '.js')
 var testfiles = ['test/node/**/*.test.js']
+var datafiles = ['test/node/**/*.data.js']
 
 var destfile = 'dist/xslet.platform.js'
 var minifile = 'dist/xslet.platform.min.js'
 
-fun.build = [['clean', [['webify', 'lint', 'minify', 'makedoc' ]] ]]
+fun.build = [['clean', [['webify', 'lint', 'minify', 'makedoc']] ]]
 fun.build.description = 'Makes product js files and document files.'
 
 fun.clean = ['cleanDest', 'cleanTest', 'cleanDocs']
@@ -48,7 +49,7 @@ fun.cleanTest = done =>
   del(['test/web/**/*.js', 'test/web/tools', 'coverage/**'], done)
 fun.cleanDocs = done => del(['docs/**'], done)
 
-fun.webify = ['webifyDest', 'webifyTest', 'copyTestTools' ]
+fun.webify = ['webifyDest', 'webifyTest', 'copyTestTools']
 
 fun.webifyDest = () =>
   gulp.src(filesForWeb)
@@ -85,7 +86,7 @@ fun.lint = () =>
       .pipe(eslint.format())
 fun.lint.description = 'Lint js source files.'
 
-fun.makedoc = [ 'jsdoc', 'copyDistToDocs', 'copyTestToDocs' ]
+fun.makedoc = ['jsdoc', 'copyDistToDocs', 'copyTestToDocs']
 
 fun.jsdoc = done =>
   gulp.src([destfile, 'README.md'])
@@ -113,8 +114,8 @@ fun.coverage = () =>
 fun.coverage.description = 'Measures the coverage of the unit tests.'
 
 fun.watch = {
-  watch: [].concat(srcfiles, testfiles),
-  call: [[ 'build', 'test' ]],
+  watch: [].concat(srcfiles, testfiles, datafiles),
+  call: [['build', 'test']],
 }
 fun.watch.description = 'Watches file changes, then builds and tests.'
 
