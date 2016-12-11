@@ -21,6 +21,8 @@ describe('setNameAndVersion', function() {
   });
 
   it('Cannot rewrite properties', function(done) {
+    "use strict";
+
     var obj = {};
     setNameAndVersion(obj, ['AAA', 'BBB', 'CCC'], 'BBB', '12.3.4');
 

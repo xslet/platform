@@ -25,6 +25,12 @@ var filesForWeb = [
   'res/footer.forweb',
 ]
 
+var testToolsForWeb = [
+  'node_modules/mocha/mocha.css',
+  'node_modules/mocha/mocha.js',
+  'node_modules/chai/chai.js',
+]
+
 var srcfiles = filesForWeb.filter(file => path.extname(file) === '.js')
 var testfiles = ['test/node/**/*.test.js']
 
@@ -38,10 +44,11 @@ fun.clean = ['cleanDest', 'cleanTest', 'cleanDocs']
 fun.clean.description = 'Cleans all product files.'
 
 fun.cleanDest = done => del(['dist/**'], done)
-fun.cleanTest = done => del(['test/web/**/*.js', 'coverage/**'], done)
+fun.cleanTest = done =>
+  del(['test/web/**/*.js', 'test/web/tools', 'coverage/**'], done)
 fun.cleanDocs = done => del(['docs/**'], done)
 
-fun.webify = ['webifyDest', 'webifyTest']
+fun.webify = ['webifyDest', 'webifyTest', 'copyTestTools' ]
 
 fun.webifyDest = () =>
   gulp.src(filesForWeb)
@@ -58,6 +65,10 @@ fun.webifyTest = () =>
       .pipe(replace(/(^|[\r\n]+)((|.*[; =]+)require *\(.*[\r\n]+)+/g, EOL))
       .pipe(replace(/(^|[\r\n]+)(["']use strict["'];.*[\r\n]+)+/g, EOL))
       .pipe(gulp.dest('./test/web'))
+
+fun.copyTestTools = () =>
+  gulp.src(testToolsForWeb)
+      .pipe(gulp.dest('test/web/tools'))
 
 fun.minify = () =>
   gulp.src(destfile)
@@ -86,8 +97,7 @@ fun.copyDistToDocs = () =>
       .pipe(gulp.dest('docs/dist'))
 
 fun.copyTestToDocs = () =>
-  gulp.src('test/web/index.html')
-      .pipe(replace(/( |\r|\n)*<hr\/>( |\r|\n)*<footer>(.|\r|\n)*<\/footer>/, ''))
+  gulp.src('test/web/**')
       .pipe(gulp.dest('docs/test/web'))
 
 fun.test = () =>

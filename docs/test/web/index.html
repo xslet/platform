@@ -66,5 +66,29 @@
  </script>
 </main>
 
+ <hr/>
+
+<footer>
+ <script>
+  var libs = [
+    'compareVersions',
+    'detectOS',
+    'detectUA',
+    'getVersion',
+    'setClassToHtmlTag',
+    'setNameAndVersion',
+  ];
+
+  var text = '';
+  libs.forEach(function(lib, i) {
+    text += '<a href="./lib/' + lib + '.test.html">&#x1f517;' + lib + '</a>';
+    text += ' | ';
+  });
+  text += '<a href="./definePlatform.test.html">&#x1f517;definePlatform</a>';
+
+  document.write(text);
+ </script>
+</footer>
+
 </body>
 </html>
