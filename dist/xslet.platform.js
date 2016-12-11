@@ -15,6 +15,7 @@
   'use strict';
   definePlatform(xslet, window);
 
+
 /**
  * Defines `xslet.platform` namespace.
  *

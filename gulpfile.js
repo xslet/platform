@@ -11,8 +11,9 @@ const plumber = require('gulp-plumber')
 const mocha = require('gulp-spawn-mocha')
 
 const path = require('path')
+const EOL = '\n';
 
-var srcfiles = [
+var filesForWeb = [
   'res/header.forweb',
   'src/definePlatform.js',
   'src/lib/detectUA.js',
@@ -24,11 +25,11 @@ var srcfiles = [
   'res/footer.forweb',
 ]
 
+var srcfiles = filesForWeb.filter(file => path.extname(file) === '.js')
 var testfiles = ['test/node/**/*.test.js']
 
 var destfile = 'dist/xslet.platform.js'
 var minifile = 'dist/xslet.platform.min.js'
-
 
 fun.build = [['clean', [['webify', 'lint', 'minify', 'makedoc' ]] ]]
 fun.build.description = 'Makes product js files and document files.'
@@ -43,19 +44,19 @@ fun.cleanDocs = done => del(['docs/**'], done)
 fun.webify = ['webifyDest', 'webifyTest']
 
 fun.webifyDest = () =>
-  gulp.src(srcfiles)
-      .pipe(replace(/(^|\n)(module\.exports *=.*\n)+/g, ''))
-      .pipe(replace(/(^|\n)(.*[;= (]require *\(.*\n)+/g, ''))
-      .pipe(replace(/(^|\n)(["']use strict["'];.*\n)+/g, ''))
-      .pipe(replace(/(^|\n)\/\* *\n \* *Copyright.*\n.*\n *\*\/ *\n/, ''))
+  gulp.src(filesForWeb)
+      .pipe(replace(/(^|[\r\n]+)(module\.exports *=.*[\r\n]+)+/g, EOL))
+      .pipe(replace(/(^|[\r\n]+)((|.*[; =]+)require *\(.*[\r\n]+)+/g, EOL))
+      .pipe(replace(/(^|[\r\n]+)(["']use strict["'];.*[\r\n]+)+/g, EOL))
+      .pipe(replace(/(^|[\r\n]+)\/\* *[\r\n]+ \* *Copyright.*[\r\n]+.*[\r\n]+ *\*\/ *[\r\n]+/, EOL))
       .pipe(concat(path.basename(destfile)))
       .pipe(gulp.dest(path.dirname(destfile)))
 
 fun.webifyTest = () =>
   gulp.src(['src/**/*.js', 'test/node/**/*.js'])
-      .pipe(replace(/(^|\n)(module\.exports *=.*\n)+/g, ''))
-      .pipe(replace(/(^|\n)(.*[;= (]require *\(.*\n)+/g, ''))
-      .pipe(replace(/(^|\n)(["']use strict["'];.*\n)+/g, ''))
+      .pipe(replace(/(^|[\r\n]+)(module\.exports *=.*[\r\n]+)+/g, EOL))
+      .pipe(replace(/(^|[\r\n]+)((|.*[; =]+)require *\(.*[\r\n]+)+/g, EOL))
+      .pipe(replace(/(^|[\r\n]+)(["']use strict["'];.*[\r\n]+)+/g, EOL))
       .pipe(gulp.dest('./test/web'))
 
 fun.minify = () =>
@@ -67,10 +68,11 @@ fun.minify = () =>
       .pipe(gulp.dest(path.dirname(minifile)))
 
 fun.lint = () =>
-  gulp.src(destfile)
+  gulp.src(srcfiles)
       .pipe(plumber())
       .pipe(eslint())
       .pipe(eslint.format())
+fun.lint.description = 'Lint js source files.'
 
 fun.makedoc = [ 'jsdoc', 'copyDistToDocs', 'copyTestToDocs' ]
 
@@ -85,7 +87,7 @@ fun.copyDistToDocs = () =>
 
 fun.copyTestToDocs = () =>
   gulp.src('test/web/index.html')
-      .pipe(replace(/( |\n)*<hr\/>( |\n)*<footer>(.|\n)*<\/footer>/, ''))
+      .pipe(replace(/( |\r|\n)*<hr\/>( |\r|\n)*<footer>(.|\r|\n)*<\/footer>/, ''))
       .pipe(gulp.dest('docs/test/web'))
 
 fun.test = () =>

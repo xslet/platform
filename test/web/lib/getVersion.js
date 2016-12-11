@@ -2,7 +2,6 @@
  * Copyright (C) 2016 xslet project.
  * This software is released under the MIT license.
  */
-
 /**
  * Gets version number string from user agent string in upper case.
  *

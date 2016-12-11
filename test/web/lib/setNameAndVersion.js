@@ -2,7 +2,6 @@
  * Copyright (C) 2016 xslet project.
  * This software is released under the MIT license.
  */
-
 /**
  * Sets the name, the version and boolean flags of candidate names to the
  * object.
