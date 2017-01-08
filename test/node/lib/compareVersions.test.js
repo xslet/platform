@@ -71,7 +71,7 @@ describe('compareVersions', function() {
     function(done) {
       var obj = { name: 'AAA', version: '' };
       var ret = compareVersions(obj, 'AAA', '');
-      expect(ret).to.equal(0);
+      expect(isNaN(ret)).to.true;
       done();
     });
 
@@ -135,7 +135,7 @@ describe('compareVersions', function() {
     function(done) {
       var obj = { name: 'ABC', version: '0.10.4.7' };
       var ret = compareVersions(obj, 'ABC', '');
-      expect(ret).to.equal(1);
+      expect(isNaN(ret)).to.true;
       done();
     });
 
@@ -223,7 +223,7 @@ describe('compareVersions', function() {
     function(done) {
       var obj = { name: 'ABC', version: '' };
       var ret = compareVersions(obj, 'ABC', '0.10.3.7');
-      expect(ret).to.equal(-1);
+      expect(isNaN(ret)).to.true;
       done();
     });
 

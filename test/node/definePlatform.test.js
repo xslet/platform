@@ -89,9 +89,15 @@ describe('definePlatform', function() {
 
 
   it('xslet.platform.os.lt', function(done) {
-    expect(xslet.platform.os.lt(osName, osVersion)).to.be.false;
-    expect(xslet.platform.os.lt(osName, greaterOsVersion)).to.be.true;
-    expect(xslet.platform.os.lt(osName, lessOsVersion)).to.be.false;
+    if (osVersion.length) {
+      expect(xslet.platform.os.lt(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.lt(osName, greaterOsVersion)).to.be.true;
+      expect(xslet.platform.os.lt(osName, lessOsVersion)).to.be.false;
+    } else {
+      expect(xslet.platform.os.lt(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.lt(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.lt(osName, lessOsVersion)).to.be.false;
+    }
 
     expect(xslet.platform.os.lt('XXX', osVersion)).to.be.false;
     expect(xslet.platform.os.lt('XXX', greaterOsVersion)).to.be.false;
@@ -100,9 +106,15 @@ describe('definePlatform', function() {
   });
 
   it('xslet.platform.os.lte', function(done) {
-    expect(xslet.platform.os.lte(osName, osVersion)).to.be.true;
-    expect(xslet.platform.os.lte(osName, greaterOsVersion)).to.be.true;
-    expect(xslet.platform.os.lte(osName, lessOsVersion)).to.be.false;
+    if (osVersion.length) {
+      expect(xslet.platform.os.lte(osName, osVersion)).to.be.true;
+      expect(xslet.platform.os.lte(osName, greaterOsVersion)).to.be.true;
+      expect(xslet.platform.os.lte(osName, lessOsVersion)).to.be.false;
+    } else {
+      expect(xslet.platform.os.lte(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.lte(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.lte(osName, lessOsVersion)).to.be.false;
+    }
 
     expect(xslet.platform.os.lte('XXX', osVersion)).to.be.false;
     expect(xslet.platform.os.lte('XXX', greaterOsVersion)).to.be.false;
@@ -111,9 +123,15 @@ describe('definePlatform', function() {
   });
 
   it('xslet.platform.os.gt', function(done) {
-    expect(xslet.platform.os.gt(osName, osVersion)).to.be.false;
-    expect(xslet.platform.os.gt(osName, greaterOsVersion)).to.be.false;
-    expect(xslet.platform.os.gt(osName, lessOsVersion)).to.be.true;
+    if (osVersion.length) {
+      expect(xslet.platform.os.gt(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.gt(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.gt(osName, lessOsVersion)).to.be.true;
+    } else {
+      expect(xslet.platform.os.gt(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.gt(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.gt(osName, lessOsVersion)).to.be.false;
+    }
 
     expect(xslet.platform.os.gt('XXX', osVersion)).to.be.false;
     expect(xslet.platform.os.gt('XXX', greaterOsVersion)).to.be.false;
@@ -122,9 +140,15 @@ describe('definePlatform', function() {
   });
 
   it('xslet.platform.os.gte', function(done) {
-    expect(xslet.platform.os.gte(osName, osVersion)).to.be.true;
-    expect(xslet.platform.os.gte(osName, greaterOsVersion)).to.be.false;
-    expect(xslet.platform.os.gte(osName, lessOsVersion)).to.be.true;
+    if (osVersion.length) {
+      expect(xslet.platform.os.gte(osName, osVersion)).to.be.true;
+      expect(xslet.platform.os.gte(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.gte(osName, lessOsVersion)).to.be.true;
+    } else {
+      expect(xslet.platform.os.gte(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.gte(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.gte(osName, lessOsVersion)).to.be.false;
+    }
 
     expect(xslet.platform.os.gte('XXX', osVersion)).to.be.false;
     expect(xslet.platform.os.gte('XXX', greaterOsVersion)).to.be.false;
@@ -133,9 +157,15 @@ describe('definePlatform', function() {
   });
 
   it('xslet.platform.os.eq', function(done) {
-    expect(xslet.platform.os.eq(osName, osVersion)).to.be.true;
-    expect(xslet.platform.os.eq(osName, greaterOsVersion)).to.be.false;
-    expect(xslet.platform.os.eq(osName, lessOsVersion)).to.be.false;
+    if (osVersion.length) {
+      expect(xslet.platform.os.eq(osName, osVersion)).to.be.true;
+      expect(xslet.platform.os.eq(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.eq(osName, lessOsVersion)).to.be.false;
+    } else {
+      expect(xslet.platform.os.eq(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.eq(osName, greaterOsVersion)).to.be.false;
+      expect(xslet.platform.os.eq(osName, lessOsVersion)).to.be.false;
+    }
 
     expect(xslet.platform.os.eq('XXX', osVersion)).to.be.false;
     expect(xslet.platform.os.eq('XXX', greaterOsVersion)).to.be.false;
@@ -144,9 +174,15 @@ describe('definePlatform', function() {
   });
 
   it('xslet.platform.os.ne', function(done) {
-    expect(xslet.platform.os.ne(osName, osVersion)).to.be.false;
-    expect(xslet.platform.os.ne(osName, greaterOsVersion)).to.be.true;
-    expect(xslet.platform.os.ne(osName, lessOsVersion)).to.be.true;
+    if (osVersion.length) {
+      expect(xslet.platform.os.ne(osName, osVersion)).to.be.false;
+      expect(xslet.platform.os.ne(osName, greaterOsVersion)).to.be.true;
+      expect(xslet.platform.os.ne(osName, lessOsVersion)).to.be.true;
+    } else {
+      expect(xslet.platform.os.ne(osName, osVersion)).to.be.true;
+      expect(xslet.platform.os.ne(osName, greaterOsVersion)).to.be.true;
+      expect(xslet.platform.os.ne(osName, lessOsVersion)).to.be.true;
+    }
 
     expect(xslet.platform.os.ne('XXX', osVersion)).to.be.true;
     expect(xslet.platform.os.ne('XXX', greaterOsVersion)).to.be.true;

@@ -183,11 +183,20 @@ Is used to change style applications for each version of OSs.
 Behavior checks on browsers
 ---------------------------
 
-Show this page: [test/web/index.html](test/web/index.html). 
+Test page is: [test/web/index.html](test/web/index.html). 
+
+### Platforms already checked
+
+#### macOS
+
+| Safari | Chrome | Firefox| Vivaldi|
+|--------|--------|--------|--------|
+|&#x2713;|&#x2713;|&#x2713;|&#x2713;|
+
 
 License
 -------
-Copyright (C) 2016 Takayuki Sato
+Copyright (C) 2016-2017 Takayuki Sato
 
 This program is free software under [MIT][mit-url] License.
 See the file LICENSE in this distribution for more details.

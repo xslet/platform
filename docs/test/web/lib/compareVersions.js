@@ -24,8 +24,13 @@ function compareVersions(obj, name, version) {
   var arr2 = version.split('.').map(toInteger);
 
   for (var i = 0, n = arr1.length; i < n; i++) {
-    if (arr2[i] == null) {
+    if (i >= arr2.length) {
       return 1;
+    }
+
+    if (arr1[i].length || isNaN(arr1[i]) ||
+        arr2[i].length || isNaN(arr2[i])) {
+      return NaN;
     }
 
     if (arr1[i] < arr2[i]) {
