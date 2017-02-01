@@ -273,6 +273,8 @@ function definePlatform(xslet, window) {
 }
 
 
+/* eslint max-statements: "off" */
+
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the browser informations.
@@ -294,6 +296,7 @@ function detectUA(useragent) {
         'SAFARI',
         'OPERA',
         'VIVALDI',
+        'PHANTOMJS',
         'UNKNOWN',
       ];
 
@@ -348,6 +351,11 @@ function detectUA(useragent) {
     return ua;
   }
 
+  if ((version = getVersion(useragent, 'PHANTOMJS'))) {
+    setNameAndVersion(ua, candids, 'PHANTOMJS', version);
+    return ua;
+  }
+
   if (useragent.indexOf('SAFARI') >= 0) {
     setNameAndVersion(ua, candids, 'SAFARI', getVersion(useragent, 'VERSION'));
     return ua;
@@ -362,6 +370,8 @@ function detectUA(useragent) {
   return ua;
 }
 
+
+/* eslint max-statements: "off" */
 
 /**
  * Parses the user agent string which is converted to upper case and gets
@@ -411,19 +421,19 @@ function detectOS(useragent) {
     return os;
   }
 
-  if ((version = getVersion(useragent, 'ANDROID', 2))) {
+  if ((version = getVersion(useragent, 'ANDROID', 2)) != null) {
     setNameAndVersion(os, candids, 'ANDROID', version);
     Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
     return os;
   }
 
-  if ((version = getVersion(useragent, 'WINDOWS', 2))) {
+  if ((version = getVersion(useragent, 'WINDOWS', 2)) != null) {
     setNameAndVersion(os, candids, 'WINNT', version);
     Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
     return os;
   }
 
-  if ((version = getVersion(useragent, 'MAC OS X', 2))) {
+  if ((version = getVersion(useragent, 'MAC OS X', 2)) != null) {
     setNameAndVersion(os, candids, 'MACOS', version);
     Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
     return os;
@@ -456,11 +466,11 @@ function getVersion(useragent, key, num) {
   num = num || 1;
   var index = useragent.indexOf(key);
   if (index < 0) {
-    return '';
+    return null;
   }
 
   var str = useragent.slice(index + key.length);
-  str = str.replace(/[^0-9]*/, '');
+  str = str.replace(/[^0-9)]*/, '');
 
   var version = '';
   for (var i = 0; i < num; i++) {

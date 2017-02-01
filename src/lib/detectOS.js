@@ -8,6 +8,8 @@
 var getVersion = require('./getVersion');
 var setNameAndVersion = require('./setNameAndVersion');
 
+/* eslint max-statements: "off" */
+
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the OS informations.
@@ -56,19 +58,19 @@ function detectOS(useragent) {
     return os;
   }
 
-  if ((version = getVersion(useragent, 'ANDROID', 2))) {
+  if ((version = getVersion(useragent, 'ANDROID', 2)) != null) {
     setNameAndVersion(os, candids, 'ANDROID', version);
     Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
     return os;
   }
 
-  if ((version = getVersion(useragent, 'WINDOWS', 2))) {
+  if ((version = getVersion(useragent, 'WINDOWS', 2)) != null) {
     setNameAndVersion(os, candids, 'WINNT', version);
     Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
     return os;
   }
 
-  if ((version = getVersion(useragent, 'MAC OS X', 2))) {
+  if ((version = getVersion(useragent, 'MAC OS X', 2)) != null) {
     setNameAndVersion(os, candids, 'MACOS', version);
     Object.defineProperty(os, 'IOS', { enumerable: true, value: false });
     return os;

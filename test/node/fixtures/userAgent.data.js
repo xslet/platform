@@ -984,6 +984,11 @@ var userAgentList = [
     ua: { name: 'VIVALDI', version: '1' },
     os: { name: 'LINUX', version: '' },
   },
+  {
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1',
+    ua: { name: 'PHANTOMJS', version: '2' },
+    os: { name: 'MACOS', version: '' },
+  },
 ];
 
 module.exports = userAgentList;

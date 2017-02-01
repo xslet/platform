@@ -8,6 +8,8 @@
 var getVersion = require('./getVersion');
 var setNameAndVersion = require('./setNameAndVersion');
 
+/* eslint max-statements: "off" */
+
 /**
  * Parses the user agent string which is converted to upper case and gets
  * the browser informations.
@@ -29,6 +31,7 @@ function detectUA(useragent) {
         'SAFARI',
         'OPERA',
         'VIVALDI',
+        'PHANTOMJS',
         'UNKNOWN',
       ];
 
@@ -80,6 +83,11 @@ function detectUA(useragent) {
 
   if ((version = getVersion(useragent, 'CRIOS'))) {
     setNameAndVersion(ua, candids, 'CHROME', version);
+    return ua;
+  }
+
+  if ((version = getVersion(useragent, 'PHANTOMJS'))) {
+    setNameAndVersion(ua, candids, 'PHANTOMJS', version);
     return ua;
   }
 

@@ -9,6 +9,7 @@ const jsdoc = require('gulp-jsdoc3')
 const eslint = require('gulp-eslint')
 const plumber = require('gulp-plumber')
 const mocha = require('gulp-spawn-mocha')
+const mochaPhantomJS = require('gulp-mocha-phantomjs')
 
 const path = require('path')
 const EOL = '\n'
@@ -34,6 +35,7 @@ var testToolsForWeb = [
 var srcfiles = filesForWeb.filter(file => path.extname(file) === '.js')
 var testfiles = ['test/node/**/*.test.js']
 var datafiles = ['test/node/**/*.data.js']
+var htmlfiles = ['test/web/**/*.test.html']
 
 var destfile = 'dist/xslet.platform.js'
 var minifile = 'dist/xslet.platform.min.js'
@@ -112,6 +114,11 @@ fun.coverage = () =>
       .pipe(plumber())
       .pipe(mocha({ istanbul: true }))
 fun.coverage.description = 'Measures the coverage of the unit tests.'
+
+fun.phantomjs = () =>
+  gulp.src(htmlfiles)
+      .pipe(mochaPhantomJS())
+fun.phantomjs.description = 'Runs the unit tests with PhantomJS.'
 
 fun.watch = {
   watch: [].concat(srcfiles, testfiles, datafiles),
