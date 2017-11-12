@@ -1,129 +1,107 @@
+'use strict';
+
 const gulp = require('gulp')
 const fun = require('gulp-fun-style')
 const del = require('del')
-const uglify = require('gulp-uglify')
-const concat = require('gulp-concat')
-const replace = require('gulp-replace')
-const sourcemaps = require('gulp-sourcemaps')
-const jsdoc = require('gulp-jsdoc3')
 const eslint = require('gulp-eslint')
 const plumber = require('gulp-plumber')
 const mocha = require('gulp-spawn-mocha')
-const mochaPhantomJS = require('gulp-mocha-phantomjs')
+const webpack = require('webpack-stream')
+const yaml = require('gulp-yaml')
+const headerfooter = require('gulp-headerfooter')
+const rename = require('gulp-rename')
+const named = require('vinyl-named')
+const marked = require('gulp-marked')
 
-const path = require('path')
-const EOL = '\n'
 
-var filesForWeb = [
-  'res/header.forweb',
-  'src/definePlatform.js',
-  'src/lib/detectUA.js',
-  'src/lib/detectOS.js',
-  'src/lib/getVersion.js',
-  'src/lib/compareVersions.js',
-  'src/lib/setNameAndVersion.js',
-  'src/lib/setClassToHtmlTag.js',
-  'res/footer.forweb',
-]
+fun.default = ['build']
 
-var testToolsForWeb = [
-  'node_modules/mocha/mocha.css',
-  'node_modules/mocha/mocha.js',
-  'node_modules/chai/chai.js',
-]
+fun.build = [[ 'clean', [[ 'lint', 'bundle', 'test', 'docs' ]] ]]
+fun.build.description = 'Lint, bundle, test and make docs'
 
-var srcfiles = filesForWeb.filter(file => path.extname(file) === '.js')
-var testfiles = ['test/node/**/*.test.js']
-var datafiles = ['test/node/**/*.data.js']
-var htmlfiles = ['test/web/**/*.test.html']
 
-var destfile = 'dist/xslet.platform.js'
-var minifile = 'dist/xslet.platform.min.js'
-
-fun.build = [['clean', [['webify', 'lint', 'minify', 'makedoc']] ]]
-fun.build.description = 'Makes product js files and document files.'
-
-fun.clean = ['cleanDest', 'cleanTest', 'cleanDocs']
+fun.clean = [ 'clean_dist', 'clean_test', 'clean_docs' ]
 fun.clean.description = 'Cleans all product files.'
 
-fun.cleanDest = done => del(['dist/**'], done)
-fun.cleanTest = done =>
-  del(['test/web/**/*.js', 'test/web/tools', 'coverage/**'], done)
-fun.cleanDocs = done => del(['docs/**'], done)
+fun.clean_dist = done => del(['dist/**'], done)
+fun.clean_test = done => del(['coverage/**'], done)
+fun.clean_docs = done => del(['docs/res/**'], done)
 
-fun.webify = ['webifyDest', 'webifyTest', 'copyTestTools']
-
-fun.webifyDest = () =>
-  gulp.src(filesForWeb)
-      .pipe(replace(/(^|[\r\n]+)(module\.exports *=.*[\r\n]+)+/g, EOL))
-      .pipe(replace(/(^|[\r\n]+)((|.*[; =]+)require *\(.*[\r\n]+)+/g, EOL))
-      .pipe(replace(/(^|[\r\n]+)(["']use strict["'];.*[\r\n]+)+/g, EOL))
-      .pipe(replace(/(^|[\r\n]+)\/\* *[\r\n]+ \* *Copyright.*[\r\n]+.*[\r\n]+ *\*\/ *[\r\n]+/, EOL))
-      .pipe(concat(path.basename(destfile)))
-      .pipe(gulp.dest(path.dirname(destfile)))
-
-fun.webifyTest = () =>
-  gulp.src(['src/**/*.js', 'test/node/**/*.js'])
-      .pipe(replace(/(^|[\r\n]+)(module\.exports *=.*[\r\n]+)+/g, EOL))
-      .pipe(replace(/(^|[\r\n]+)((|.*[; =]+)require *\(.*[\r\n]+)+/g, EOL))
-      .pipe(replace(/(^|[\r\n]+)(["']use strict["'];.*[\r\n]+)+/g, EOL))
-      .pipe(gulp.dest('./test/web'))
-
-fun.copyTestTools = () =>
-  gulp.src(testToolsForWeb)
-      .pipe(gulp.dest('test/web/tools'))
-
-fun.minify = () =>
-  gulp.src(destfile)
-      .pipe(sourcemaps.init())
-      .pipe(concat(path.basename(minifile)))
-      .pipe(uglify({ preserveComments: 'some' }))
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest(path.dirname(minifile)))
 
 fun.lint = () =>
-  gulp.src(srcfiles)
-      .pipe(plumber())
-      .pipe(eslint())
-      .pipe(eslint.format())
-fun.lint.description = 'Lint js source files.'
+  gulp.src(['src/**/*.js'])
+    .pipe(plumber())
+    .pipe(eslint())
+    .pipe(eslint.format())
+fun.lint.description = 'Lint js files.'
 
-fun.makedoc = ['jsdoc', 'copyDistToDocs', 'copyTestToDocs']
 
-fun.jsdoc = done =>
-  gulp.src([destfile, 'README.md'])
-      .pipe(plumber())
-      .pipe(jsdoc(require('./.jsdoc.json'), done))
+fun.test = [['test_makedata', 'test_coverage']]
+fun.test.description = 'Runs tests with coverage.'
 
-fun.copyDistToDocs = () =>
-  gulp.src('dist/**')
-      .pipe(gulp.dest('docs/dist'))
+fun.test_makedata = () =>
+  gulp.src('test/fixtures/*.yml')
+    .pipe(yaml({ safe: true }))
+    .pipe(gulp.dest('test/fixtures'))
 
-fun.copyTestToDocs = () =>
-  gulp.src('test/web/**')
-      .pipe(gulp.dest('docs/test/web'))
+fun.test_coverage = () =>
+  gulp.src(['test/**/*.test.js'])
+    .pipe(plumber())
+    .pipe(mocha({ istanbul: true }))
 
-fun.test = () =>
-  gulp.src(testfiles)
-      .pipe(plumber())
-      .pipe(mocha())
-fun.test.description = 'Runs the unit tests.'
 
-fun.coverage = () =>
-  gulp.src(testfiles)
-      .pipe(plumber())
-      .pipe(mocha({ istanbul: true }))
-fun.coverage.description = 'Measures the coverage of the unit tests.'
+fun.bundle = () =>
+  gulp.src('src/entry.js')
+    .pipe(webpack(require('./.webpack.config.js')))
+    .pipe(gulp.dest('dist/'))
+fun.bundle.description = 'Bundle source files.'
 
-fun.phantomjs = () =>
-  gulp.src(htmlfiles)
-      .pipe(mochaPhantomJS())
-fun.phantomjs.description = 'Runs the unit tests with PhantomJS.'
 
-fun.watch = {
-  watch: [].concat(srcfiles, testfiles, datafiles),
-  call: [['build', 'test']],
+fun.watch_test = {
+  watch: ['src/**/*.js', 'test/**/*.test.js'],
+  call: [[ 'lint', 'coverage' ]]
 }
-fun.watch.description = 'Watches file changes, then builds and tests.'
 
-fun.default = fun.watch
+fun.watch_docs = { watch: ['docs/**/**.md'], call: ['docs'] }
+
+fun.watch = ['watch_test', 'watch_doc']
+fun.watch.description = 'Watches file changes, then lint, test or make docs.'
+
+
+fun.docs = ['docs_makedata', 'docs_copyfiles', 'docs_maketests', 'docs_makeapi']
+fun.docs.description = 'Make documents'
+
+fun.docs_makedata = () =>
+  gulp.src('test/fixtures/useragent.data.json')
+    .pipe(headerfooter('var userAgentList = ', ';'))
+    .pipe(rename({ extname: '.js' }))
+    .pipe(gulp.dest('docs/res'))
+
+fun.docs_copyfiles = () =>
+  gulp.src(['dist/*.js',
+            'node_modules/mocha/mocha.css',
+            'node_modules/mocha/mocha.js',
+            'node_modules/chai/chai.js',
+           ])
+    .pipe(gulp.dest('docs/res/'))
+
+fun.docs_maketests = () => 
+  gulp.src(['test/*.test.js', '!test/index.test.js'])
+    .pipe(named())
+    .pipe(webpack())
+    .pipe(gulp.dest('docs/res/'))
+
+fun.docs_makeapi = () =>
+  gulp.src('docs/index.md')
+    .pipe(marked())
+    .pipe(headerfooter.header(
+      '<!DOCTYPE html>\n<html>\n<head>\n' +
+      '<meta charset="utf-8"/>\n' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">\n' +
+      '<title>@fav/type API document</title>\n' +
+      '<link rel="stylesheet" href="./api.css"/>\n' +
+      '<script src="./api.js"></script>\n' +
+      '</head>\n<body>\n'
+    ))
+    .pipe(headerfooter.footer('\n</body>\n</html>'))
+    .pipe(gulp.dest('docs/'))

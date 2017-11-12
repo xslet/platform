@@ -1,30 +1,21 @@
 # [@xslet/platform][repo-url] [![Github.io][io-image]][io-url] [![NPM version][npm-image]][npm-url] [![MIT License][mit-image]][mit-url] [![Coverage Status][coverage-image]][coverage-url]
 
-Gets platform informations of the Web browser.
+Gets platform informations of a Web browser.
 
-Build
------
+## Install
 
-Build this module:
+Load this package in a browser:
 
-```sh
-$ gulp build
-```
-
-
-Usage
------
-
-Load this module in a browser:
-
-```js
+```html
 <script src="xslet.platform.min.js"></script>
 ```
+
+## Usage
 
 Get platform informations:
 
 ```js
-// On Firefox 48.0 and Windows 10.0
+// On Firefox 48.0 and Window 10.0
 xslet.platform.ua.name      // => 'FIREFOX'
 xslet.platform.ua.version   // => '48'
 xslet.platform.ua.FIREFOX   // => true
@@ -35,198 +26,38 @@ xslet.platform.os.WINNT     // => true
 xslet.platform.os.LINUX     // => false
 ```
 
-Write CSS by platform:
+Write CSS for each platform:
 
 ```css
-/* On Firefox 48.0 and Windows 10.0 */
-html.UA-FIREFOX { ... }
-html.UA-FIREFOX-48 { ... }
-html.OS-WINNT { ... }
-html.OS-WINNT-10_0 { ... }
+html.UA-FIREFOX P { background-color: red }       /* for Firefox */
+html.UA-FIREFOX-48 P { background-color: yellow } /* for Firefox 48 */
+html.OS-WINNT P { background-color: blue }        /* for Windows */
+html.OS-WINNT-10_0 P { background-color: cyan }   /* for Windows 10.0 */
 ```
 
-APIs for javascript
--------------------
+## API
 
-#### <u>xslet.platform.ua.name</u>
+This package provides API documents on [Github.io](https://xslet.github.io/platform/index.html) or docs/index.html in this package.
 
-The browser name in upper case characters.
-(ex. 'FIREFOX', 'MSIE', 'CHROME').
+## Checked
 
-Type: string
+This package has been checked the behavior by using [this pages](https://xslet.github.io/platform/test.html) on the following platforms: 
 
-#### <u>xslet.platform.ua.version</u>
+| Platform  | Chrome | Firefox | Vivaldi | Safari |  Edge  | IE11   |
+|:---------:|:------:|:-------:|:-------:|:------:|:------:|:------:| 
+| macOS     |&#x25ef;|&#x25ef; |&#x25ef; |&#x25ef;|   --   |   --   |
+| Windows10 |&#x25ef;|&#x25ef; |&#x25ef; |   --   |&#x25ef;|&#x25ef;|
+| Linux     |&#x25ef;|&#x25ef; |&#x25ef; |   --   |   --   |   --   |
 
-The browser version which concatenates natural numbers by dots.
-(ex. '48', '10.0').
+##License
 
-Type: string
-
-#### <u>xslet.platform.ua.*NAME*</u>
-
-The flag of which the name is the browser name in upper case.
-
-Type: boolean
-
-#### <u>xslet.platform.os.name</u>
-
-The OS name in upper case characters.
-(ex. 'WINNT', 'LINUX', 'IPHONE')
-
-Type: string
-
-#### <u>xslet.platform.os.version</u>
-
-The OS version which concatenates natural numbers by dots.
-(ex. '48', '10.0').
-
-Type: string
-
-#### <u>xslet.platform.os.*NAME*</u>
-
-The flag of which the name is the OS name in upper case.
-
-Type: boolean
-
-#### <u>xslet.platform.ua.lt(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is less than the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.ua.lte(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is less than or equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.ua.gt(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is greater than the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.ua.gte(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is greater than or equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.ua.eq(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.ua.ne(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is not equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.os.lt(*NAME*, *VERSION*)</u>
-
-Returns true if the OS is less than the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.os.lte(*NAME*, *VERSION*)</u>
-
-Returns true if the OS is less than or equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.os.gt(*NAME*, *VERSION*)</u>
-
-Returns true if the OS is greater than the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.os.gte(*NAME*, *VERSION*)</u>
-
-Returns true if the OS is greater than or equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.os.eq(*NAME*, *VERSION*)</u>
-
-Returns true if the OS is equal to the specified version.
-
-Type: boolean
-
-#### <u>xslet.platform.os.ne(*NAME*, *VERSION*)</u>
-
-Returns true if the browser is not equal to the specified version.
-
-Type: boolean
-
-
-APIs for CSS
-------------
-
-#### <u>html.UA-*NAME*</u>
-
-Is used to change style applications for each browser.
-
-#### <u>html.UA-*NAME*-*VERSION*</u>
-
-Is used to change style applications for each version of browsers.
-
-#### <u>html.OS-*NAME*</u>
-
-Is used to change style applications for each OS.
-
-#### <u>html.OS-*NAME*-*VERSION*</u>
-
-Is used to change style applications for each version of OSs.
-
-Behavior checks on browsers
----------------------------
-
-Test page is: [test/web/index.html](test/web/index.html). 
-
-### Platforms already checked
-
-#### macOS
-
-| Safari | Chrome | Firefox| Vivaldi|
-|--------|--------|--------|--------|
-|&#x2713;|&#x2713;|&#x2713;|&#x2713;|
-
-#### Linux
-
-| Chrome | Firefox| Vivaldi|
-|--------|--------|--------|
-|&#x2713;|&#x2713;|&#x2713;|
-
-#### Windows 10
-
-| Chrome | Firefox| Vivaldi| Edge   | IE11   |
-|--------|--------|--------|--------|--------|
-|&#x2713;|&#x2713;|&#x2713;|&#x2713;|&#x2713;|
-
-#### Windows 8.1
-
-| Chrome | Firefox| Vivaldi| IE11   |
-|--------|--------|--------|--------|
-|&#x2713;|&#x2713;|&#x2713;|&#x2713;|
-
-#### Windows 7
-
-| Chrome | Firefox| Vivaldi| IE11   |
-|--------|--------|--------|--------|
-|&#x2713;|&#x2713;|&#x2713;|&#x2713;|
-
-
-License
--------
 Copyright (C) 2016-2017 Takayuki Sato
 
 This program is free software under [MIT][mit-url] License.
 See the file LICENSE in this distribution for more details.
 
 [repo-url]: https://github.com/xslet/platform
-[io-image]: http://img.shields.io/badge/HP-github.io-ffbbbb.svg
+[io-image]: http://img.shields.io/badge/HP-github.io-ff8888.svg
 [io-url]: https://xslet.github.io/platform/
 [npm-image]: http://img.shields.io/badge/npm-v0.1.5-blue.svg
 [npm-url]: https://www.npmjs.org/package/@xslet/platform/

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8"/>
+ <title>Test of xslet.platform</title>
+ <style>
+ body { font: 12px/2.0 "Helvetica Neue", Helvetica, Arial, sans-serif }
+ body { margin: 30px 50px }
+ main { display: flex }
+ ul { margin-right: 50px }
+ </style>
+ <script src="./res/xslet.platform.min.js"></script>
+ <script src="./res/useragent.data.js"></script>
+</head>
+<body>
+ <header>
+  <script>
+  var text = '<p><b>Your browser is :</b> ' + navigator.userAgent + '</p>';
+  document.writeln(text);
+  </script>
+ </header>
+ <main>
+  <section>
+   <script>
+   text = '<ul>';
+   Object.keys(xslet.platform.ua).forEach(function(key) {
+     var val = xslet.platform.ua[key];
+     var typ = typeof val;
+     if (typ !== 'function') {
+       text += '<li>ua.' + key + ' : {' + typ + '} : ' + val + '</li>';
+     }
+   });
+   text += '</ul>';
+   document.writeln(text);
+   </script>
+  </section>
+  <section>
+   <script>
+   text = '<ul>';
+   Object.keys(xslet.platform.os).forEach(function(key) {
+     var val = xslet.platform.os[key];
+     var typ = typeof val;
+     if (typ !== 'function') {
+       text += '<li>ua.' + key + ' : {' + typ + '} : ' + val + '</li>';
+     }
+   });
+   text += '</ul>';
+   document.writeln(text);
+   </script>
+  </section>
+  <section>
+   <script>
+   text = '<ul>';
+   document.querySelector('html').className.split(' ').forEach(function(c) {
+     text += '<li>html.className : ' + c + '</li>';
+   });
+   text += '</ul>';
+   document.writeln(text);
+   </script>
+  </section>
+ </main>
+ <footer>
+  <hr/>
+  <script>
+   var libs = [
+     'compare-versions',
+     'create-comparable',
+     'detect-os',
+     'detect-ua',
+     'get-version',
+     'set-html-tag-class',
+     'set-name-and-version',
+   ];
+
+   text = '';
+   libs.forEach(function(lib, i) {
+     if (i !== 0) {
+       text += ' | ';
+     }
+     text += '<a href="./lib/' + lib + '.test.html">&#x1f517;' + lib + '</a>';
+   });
+   document.writeln(text);
+  </script>
+ </footer>
+</body>
+</html>
