@@ -4,8 +4,7 @@
   "description": "Gets platform informations from browser's user agent.",
   "main": "index.js",
   "files": [
-    "indexjs",
-    "lib/",
+    "src/",
     "dist/"
   ],
   "scripts": {
