@@ -37,6 +37,8 @@
     "gulp-fun-style": "^0.3.2",
     "gulp-headerfooter": "^1.0.3",
     "gulp-marked": "^1.0.0",
+    "gulp-mocha-chrome": "^0.1.0",
+    "gulp-mocha-phantomjs": "^0.12.1",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-spawn-mocha": "^4.0.1",
@@ -44,6 +46,7 @@
     "istanbul": "^0.4.5",
     "jsdom-browser": "^0.6.0",
     "mocha": "^4.0.1",
+    "semver": "^5.4.1",
     "vinyl-named": "^1.1.0",
     "webpack": "^3.8.1",
     "webpack-stream": "^4.0.0"

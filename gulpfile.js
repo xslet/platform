@@ -12,6 +12,8 @@ const headerfooter = require('gulp-headerfooter')
 const rename = require('gulp-rename')
 const named = require('vinyl-named')
 const marked = require('gulp-marked')
+const mochaPhantomJS = require('gulp-mocha-phantomjs')
+const semver = require('semver')
 
 
 fun.default = ['build']
@@ -45,10 +47,13 @@ fun.test_makedata = () =>
     .pipe(gulp.dest('test/fixtures'))
 
 fun.test_coverage = () =>
+  semver.gte(process.version, '6.0.0')
+  ?
   gulp.src(['test/**/*.test.js'])
-    .pipe(plumber())
     .pipe(mocha({ istanbul: true }))
-
+  :
+  gulp.src(['test/*.test.js', '!test/index.test.js'])
+    .pipe(mocha({ istanbul: true }))
 
 fun.bundle = () =>
   gulp.src('src/entry.js')
@@ -98,10 +103,24 @@ fun.docs_makeapi = () =>
       '<!DOCTYPE html>\n<html>\n<head>\n' +
       '<meta charset="utf-8"/>\n' +
       '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">\n' +
-      '<title>@fav/type API document</title>\n' +
+      '<title>@xslet/platform API document</title>\n' +
       '<link rel="stylesheet" href="./api.css"/>\n' +
       '<script src="./api.js"></script>\n' +
       '</head>\n<body>\n'
     ))
     .pipe(headerfooter.footer('\n</body>\n</html>'))
     .pipe(gulp.dest('docs/'))
+
+fun.test_phantomjs = () =>
+  gulp.src(['docs/lib/*.html'])
+    .pipe(mochaPhantomJS())
+fun.test_phantomjs.description = 'Runs the tests with PhantomJS.'
+
+if (semver.gte(process.version, '7.6.0')) {
+  const mochaChrome = require('gulp-mocha-chrome')
+
+  fun.test_chrome = () =>
+    gulp.src(['docs/lib/*.html'])
+      .pipe(mochaChrome())
+  fun.test_chrome.description = 'Runs the tests with headless Chrome.'
+}

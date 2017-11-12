@@ -46,7 +46,7 @@ The flag of which the name is the OS name in upper case.
 
 ### <u>xslet.platform.ua.lt(*NAME*, *VERSION*)</u>
 
-Compares 
+Compares the current browser to the given name and version.
 
 #### Parameters:
 
@@ -63,11 +63,33 @@ Returns true if the browser is less than the specified version.
 
 ### <u>xslet.platform.ua.lte(*NAME*, *VERSION*)</u>
 
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
+
 Returns true if the browser is less than or equal to the specified version.
 
 **Type:** boolean
 
 ### <u>xslet.platform.ua.gt(*NAME*, *VERSION*)</u>
+
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
 
 Returns true if the browser is greater than the specified version.
 
@@ -75,11 +97,33 @@ Returns true if the browser is greater than the specified version.
 
 ### <u>xslet.platform.ua.gte(*NAME*, *VERSION*)</u>
 
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
+
 Returns true if the browser is greater than or equal to the specified version.
 
 **Type:** boolean
 
 ### <u>xslet.platform.ua.eq(*NAME*, *VERSION*)</u>
+
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
 
 Returns true if the browser is equal to the specified version.
 
@@ -87,11 +131,33 @@ Returns true if the browser is equal to the specified version.
 
 ### <u>xslet.platform.ua.ne(*NAME*, *VERSION*)</u>
 
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
+
 Returns true if the browser is not equal to the specified version.
 
 **Type:** boolean
 
 ### <u>xslet.platform.os.lt(*NAME*, *VERSION*)</u>
+
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
 
 Returns true if the OS is less than the specified version.
 
@@ -99,11 +165,33 @@ Returns true if the OS is less than the specified version.
 
 ### <u>xslet.platform.os.lte(*NAME*, *VERSION*)</u>
 
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
+
 Returns true if the OS is less than or equal to the specified version.
 
 **Type:** boolean
 
 ### <u>xslet.platform.os.gt(*NAME*, *VERSION*)</u>
+
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
 
 Returns true if the OS is greater than the specified version.
 
@@ -111,17 +199,50 @@ Returns true if the OS is greater than the specified version.
 
 ### <u>xslet.platform.os.gte(*NAME*, *VERSION*)</u>
 
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
+
 Returns true if the OS is greater than or equal to the specified version.
 
 **Type:** boolean
 
 ### <u>xslet.platform.os.eq(*NAME*, *VERSION*)</u>
 
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
+
 Returns true if the OS is equal to the specified version.
 
 **Type:** boolean
 
 ### <u>xslet.platform.os.ne(*NAME*, *VERSION*)</u>
+
+Compares the current browser to the given name and version.
+
+#### Parameters:
+
+| Parameter |  Type  | Description                                |
+|-----------|:------:|--------------------------------------------|
+| *NAME*    | string | The browser name in upper case characters. |
+| *VERSION* | string | The browser version which concatenates natural numbers by dots. |
+
+#### Returns:
 
 Returns true if the browser is not equal to the specified version.
 
