@@ -15,15 +15,19 @@ const marked = require('gulp-marked')
 const mochaPhantomJS = require('gulp-mocha-phantomjs')
 const semver = require('semver')
 
+if (semver.gte(process.version, '7.6.0')) {
+  const mochaChrome = require('gulp-mocha-chrome')
+}
+
 
 fun.default = ['build']
 
-fun.build = [[ 'clean', [[ 'lint', 'bundle', 'test', 'docs' ]] ]]
+fun.build = [['clean', [['lint', 'bundle', 'test', 'docs']] ]]
 fun.build.description = 'Lint, bundle, test and make docs'
 
 
-fun.clean = [ 'clean_dist', 'clean_test', 'clean_docs' ]
-fun.clean.description = 'Cleans all product files.'
+fun.clean = ['clean_dist', 'clean_test', 'clean_docs']
+fun.clean.description = 'Clean all product files.'
 
 fun.clean_dist = done => del(['dist/**'], done)
 fun.clean_test = done => del(['coverage/**'], done)
@@ -52,7 +56,7 @@ fun.test_coverage = () =>
   gulp.src(['test/**/*.test.js'])
     .pipe(mocha({ istanbul: true }))
   :
-  gulp.src(['test/*.test.js', '!test/index.test.js'])
+  gulp.src(['test/**/*.test.js', '!test/index.test.js'])
     .pipe(mocha({ istanbul: true }))
 
 fun.bundle = () =>
@@ -64,10 +68,10 @@ fun.bundle.description = 'Bundle source files.'
 
 fun.watch_test = {
   watch: ['src/**/*.js', 'test/**/*.test.js'],
-  call: [[ 'lint', 'coverage' ]]
+  call: [['lint', 'test']]
 }
 
-fun.watch_docs = { watch: ['docs/**/**.md'], call: ['docs'] }
+fun.watch_docs = { watch: ['docs/**/*.md'], call: ['docs'] }
 
 fun.watch = ['watch_test', 'watch_doc']
 fun.watch.description = 'Watches file changes, then lint, test or make docs.'
@@ -102,13 +106,12 @@ fun.docs_makeapi = () =>
     .pipe(headerfooter.header(
       '<!DOCTYPE html>\n<html>\n<head>\n' +
       '<meta charset="utf-8"/>\n' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">\n' +
       '<title>@xslet/platform API document</title>\n' +
       '<link rel="stylesheet" href="./api.css"/>\n' +
       '<script src="./api.js"></script>\n' +
       '</head>\n<body>\n'
     ))
-    .pipe(headerfooter.footer('\n</body>\n</html>'))
+    .pipe(headerfooter.footer('</body>\n</html>'))
     .pipe(gulp.dest('docs/'))
 
 fun.test_phantomjs = () =>
@@ -117,8 +120,6 @@ fun.test_phantomjs = () =>
 fun.test_phantomjs.description = 'Runs the tests with PhantomJS.'
 
 if (semver.gte(process.version, '7.6.0')) {
-  const mochaChrome = require('gulp-mocha-chrome')
-
   fun.test_chrome = () =>
     gulp.src(['docs/lib/*.html'])
       .pipe(mochaChrome())

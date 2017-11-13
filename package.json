@@ -2,7 +2,7 @@
   "name": "@xslet/platform",
   "version": "0.2.0",
   "description": "Gets platform informations from browser's user agent.",
-  "main": "index.js",
+  "main": "src/index.js",
   "files": [
     "src/",
     "dist/"
@@ -19,7 +19,8 @@
     "web",
     "browser",
     "useragent",
-    "platform"
+    "platform",
+    "xslet"
   ],
   "author": "Takayuki Sato",
   "license": "MIT",
