@@ -87,7 +87,7 @@ fun.docs_makedata = () =>
     .pipe(gulp.dest('docs/res'))
 
 fun.docs_copyfiles = () =>
-  gulp.src(['dist/*.js',
+  gulp.src(['dist/*',
             'node_modules/mocha/mocha.css',
             'node_modules/mocha/mocha.js',
             'node_modules/chai/chai.js',
