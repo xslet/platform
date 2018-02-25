@@ -1,6 +1,6 @@
 'use strict';
 
-const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   output: {
@@ -10,10 +10,13 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      output: { comments: false },
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 8,
+        compress: { warnings: false },
+        output: { comments: false },
+      },
       sourceMap: true,
-    })
+    }),
   ],
 };

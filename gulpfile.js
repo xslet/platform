@@ -15,8 +15,9 @@ const marked = require('gulp-marked')
 const mochaPhantomJS = require('gulp-mocha-phantomjs')
 const semver = require('semver')
 
+let mochaChrome;
 if (semver.gte(process.version, '7.6.0')) {
-  const mochaChrome = require('gulp-mocha-chrome')
+  mochaChrome = require('gulp-mocha-chrome')
 }
 
 
@@ -119,7 +120,7 @@ fun.test_phantomjs = () =>
     .pipe(mochaPhantomJS())
 fun.test_phantomjs.description = 'Runs the tests with PhantomJS.'
 
-if (semver.gte(process.version, '7.6.0')) {
+if (mochaChrome) {
   fun.test_chrome = () =>
     gulp.src(['docs/lib/*.html'])
       .pipe(mochaChrome())
