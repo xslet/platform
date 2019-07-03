@@ -3,11 +3,6 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  output: {
-    filename: 'xslet.platform.min.js',
-    library: ['xslet', 'platform'],
-    libraryTarget: 'var',
-  },
   mode: 'production',
   optimization: {
     minimizer: [
