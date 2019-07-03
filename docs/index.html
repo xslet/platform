@@ -7,363 +7,339 @@
 <script src="./api.js"></script>
 </head>
 <body>
-<h1 id="-xslet-platform-ver-0-2-api-document"><a href="https://github.com/xslet/platform/">@xslet/platform</a> ver.0.2 - API document</h1>
+<h1 id="xsletplatform-ver02---api-document"><a href="https://github.com/xslet/platform/">@xslet/platform</a> ver.0.2 - API document</h1>
 <hr>
 <h2 id="api-for-javascript">API for Javascript</h2>
-<h3 id="-u-xslet-platform-ua-name-u-"><u>xslet.platform.ua.name</u></h3>
+<h3 id="uxsletplatformuanameu"><u>xslet.platform.ua.name</u></h3>
 <p>The browser name in upper case characters.
 (ex. &#39;FIREFOX&#39;, &#39;MSIE&#39;, &#39;CHROME&#39;).</p>
 <p><strong>Type:</strong> string</p>
-<h3 id="-u-xslet-platform-ua-version-u-"><u>xslet.platform.ua.version</u></h3>
+<h3 id="uxsletplatformuaversionu"><u>xslet.platform.ua.version</u></h3>
 <p>The browser version which concatenates natural numbers by dots.
 (ex. &#39;48&#39;, &#39;10.0&#39;).</p>
 <p><strong>Type:</strong> string</p>
-<h3 id="-u-xslet-platform-ua-name-u-"><u>xslet.platform.ua.<em>NAME</em></u></h3>
+<h3 id="uxsletplatformuanameu-1"><u>xslet.platform.ua.<em>NAME</em></u></h3>
 <p>The flag of which the name is the browser name in upper case.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-name-u-"><u>xslet.platform.os.name</u></h3>
+<h3 id="uxsletplatformosnameu"><u>xslet.platform.os.name</u></h3>
 <p>The OS name in upper case characters.
 (ex. &#39;WINNT&#39;, &#39;LINUX&#39;, &#39;IPHONE&#39;)</p>
 <p><strong>Type:</strong> string</p>
-<h3 id="-u-xslet-platform-os-version-u-"><u>xslet.platform.os.version</u></h3>
+<h3 id="uxsletplatformosversionu"><u>xslet.platform.os.version</u></h3>
 <p>The OS version which concatenates natural numbers by dots.
 (ex. &#39;48&#39;, &#39;10.0&#39;).</p>
 <p><strong>Type:</strong> string</p>
-<h3 id="-u-xslet-platform-os-name-u-"><u>xslet.platform.os.<em>NAME</em></u></h3>
+<h3 id="uxsletplatformosnameu-1"><u>xslet.platform.os.<em>NAME</em></u></h3>
 <p>The flag of which the name is the OS name in upper case.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-ua-lt-name-version-u-"><u>xslet.platform.ua.lt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformualtname-versionu"><u>xslet.platform.ua.lt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns">Returns:</h4>
 <p>Returns true if the browser is less than the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-ua-lte-name-version-u-"><u>xslet.platform.ua.lte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformualtename-versionu"><u>xslet.platform.ua.lte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-1">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-1">Returns:</h4>
 <p>Returns true if the browser is less than or equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-ua-gt-name-version-u-"><u>xslet.platform.ua.gt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformuagtname-versionu"><u>xslet.platform.ua.gt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-2">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-2">Returns:</h4>
 <p>Returns true if the browser is greater than the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-ua-gte-name-version-u-"><u>xslet.platform.ua.gte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformuagtename-versionu"><u>xslet.platform.ua.gte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-3">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-3">Returns:</h4>
 <p>Returns true if the browser is greater than or equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-ua-eq-name-version-u-"><u>xslet.platform.ua.eq(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformuaeqname-versionu"><u>xslet.platform.ua.eq(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-4">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-4">Returns:</h4>
 <p>Returns true if the browser is equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-ua-ne-name-version-u-"><u>xslet.platform.ua.ne(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformuanename-versionu"><u>xslet.platform.ua.ne(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-5">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-5">Returns:</h4>
 <p>Returns true if the browser is not equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-lt-name-version-u-"><u>xslet.platform.os.lt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformosltname-versionu"><u>xslet.platform.os.lt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-6">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-6">Returns:</h4>
 <p>Returns true if the OS is less than the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-lte-name-version-u-"><u>xslet.platform.os.lte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformosltename-versionu"><u>xslet.platform.os.lte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-7">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-7">Returns:</h4>
 <p>Returns true if the OS is less than or equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-gt-name-version-u-"><u>xslet.platform.os.gt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformosgtname-versionu"><u>xslet.platform.os.gt(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-8">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-8">Returns:</h4>
 <p>Returns true if the OS is greater than the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-gte-name-version-u-"><u>xslet.platform.os.gte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformosgtename-versionu"><u>xslet.platform.os.gte(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-9">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-9">Returns:</h4>
 <p>Returns true if the OS is greater than or equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-eq-name-version-u-"><u>xslet.platform.os.eq(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformoseqname-versionu"><u>xslet.platform.os.eq(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-10">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-10">Returns:</h4>
 <p>Returns true if the OS is equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
-<h3 id="-u-xslet-platform-os-ne-name-version-u-"><u>xslet.platform.os.ne(<em>NAME</em>, <em>VERSION</em>)</u></h3>
+<h3 id="uxsletplatformosnename-versionu"><u>xslet.platform.os.ne(<em>NAME</em>, <em>VERSION</em>)</u></h3>
 <p>Compares the current browser to the given name and version.</p>
-<h4 id="parameters-">Parameters:</h4>
+<h4 id="parameters-11">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>NAME</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser name in upper case characters.</td>
 </tr>
 <tr>
 <td><em>VERSION</em></td>
-<td style="text-align:center">string</td>
+<td align="center">string</td>
 <td>The browser version which concatenates natural numbers by dots.</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns-">Returns:</h4>
+</tbody></table>
+<h4 id="returns-11">Returns:</h4>
 <p>Returns true if the browser is not equal to the specified version.</p>
 <p><strong>Type:</strong> boolean</p>
 <h2 id="api-for-css">API for CSS</h2>
-<h3 id="-u-html-ua-name-u-"><u>html.UA-<em>NAME</em></u></h3>
+<h3 id="uhtmlua-nameu"><u>html.UA-<em>NAME</em></u></h3>
 <p>Is used to change style applications for each browser.</p>
-<h3 id="-u-html-ua-name-version-u-"><u>html.UA-<em>NAME</em>-<em>VERSION</em></u></h3>
+<h3 id="uhtmlua-name-versionu"><u>html.UA-<em>NAME</em>-<em>VERSION</em></u></h3>
 <p>Is used to change style applications for each version of browsers.</p>
-<h3 id="-u-html-os-name-u-"><u>html.OS-<em>NAME</em></u></h3>
+<h3 id="uhtmlos-nameu"><u>html.OS-<em>NAME</em></u></h3>
 <p>Is used to change style applications for each OS.</p>
-<h3 id="-u-html-os-name-version-u-"><u>html.OS-<em>NAME</em>-<em>VERSION</em></u></h3>
+<h3 id="uhtmlos-name-versionu"><u>html.OS-<em>NAME</em>-<em>VERSION</em></u></h3>
 <p>Is used to change style applications for each version of OSs.</p>
 <hr>
 </body>

@@ -11,7 +11,7 @@ const yaml = require('gulp-yaml')
 const headerfooter = require('gulp-headerfooter')
 const rename = require('gulp-rename')
 const named = require('vinyl-named')
-const marked = require('gulp-marked')
+const markdown = require('gulp-markdown')
 const semver = require('semver')
 
 
@@ -97,7 +97,7 @@ fun.docs_maketests = () =>
 
 fun.docs_makeapi = () =>
   gulp.src('docs/index.md')
-    .pipe(marked())
+    .pipe(markdown())
     .pipe(headerfooter.header(
       '<!DOCTYPE html>\n<html>\n<head>\n' +
       '<meta charset="utf-8"/>\n' +
