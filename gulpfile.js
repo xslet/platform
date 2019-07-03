@@ -12,13 +12,7 @@ const headerfooter = require('gulp-headerfooter')
 const rename = require('gulp-rename')
 const named = require('vinyl-named')
 const marked = require('gulp-marked')
-const mochaPhantomJS = require('gulp-mocha-phantomjs')
 const semver = require('semver')
-
-let mochaChrome;
-if (semver.gte(process.version, '7.6.0')) {
-  mochaChrome = require('gulp-mocha-chrome')
-}
 
 
 fun.default = ['build']
@@ -115,14 +109,3 @@ fun.docs_makeapi = () =>
     .pipe(headerfooter.footer('</body>\n</html>'))
     .pipe(gulp.dest('docs/'))
 
-fun.test_phantomjs = () =>
-  gulp.src(['docs/lib/*.html'])
-    .pipe(mochaPhantomJS())
-fun.test_phantomjs.description = 'Runs the tests with PhantomJS.'
-
-if (mochaChrome) {
-  fun.test_chrome = () =>
-    gulp.src(['docs/lib/*.html'])
-      .pipe(mochaChrome())
-  fun.test_chrome.description = 'Runs the tests with headless Chrome.'
-}
