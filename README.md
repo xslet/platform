@@ -59,7 +59,7 @@ See the file LICENSE in this distribution for more details.
 [repo-url]: https://github.com/xslet/platform
 [io-image]: http://img.shields.io/badge/HP-github.io-ff8888.svg
 [io-url]: https://xslet.github.io/platform/
-[npm-image]: http://img.shields.io/badge/npm-v0.2.2-blue.svg
+[npm-image]: http://img.shields.io/badge/npm-v0.2.3-blue.svg
 [npm-url]: https://www.npmjs.org/package/@xslet/platform/
 [mit-image]: http://img.shields.io/badge/license-MIT-green.svg
 [mit-url]: https://opensource.org/licenses/MIT
