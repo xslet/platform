@@ -5,7 +5,7 @@ const fun = require('gulp-fun-style')
 const del = require('del')
 const eslint = require('gulp-eslint')
 const plumber = require('gulp-plumber')
-const mocha = require('gulp-spawn-mocha')
+const mocha = require('gulp-mocha')
 const webpack = require('webpack-stream')
 const yaml = require('gulp-yaml')
 const headerfooter = require('gulp-headerfooter')
@@ -37,22 +37,17 @@ fun.lint = () =>
 fun.lint.description = 'Lint js files.'
 
 
-fun.test = [['test_makedata', 'test_coverage']]
-fun.test.description = 'Runs tests with coverage.'
+fun.test = [['test_makedata', 'test_with_mocha']]
+fun.test.description = 'Runs tests.'
 
 fun.test_makedata = () =>
   gulp.src('test/fixtures/*.yml')
     .pipe(yaml({ safe: true }))
     .pipe(gulp.dest('test/fixtures'))
 
-fun.test_coverage = () =>
-  semver.gte(process.version, '6.0.0')
-  ?
+fun.test_with_mocha = () =>
   gulp.src(['test/**/*.test.js'])
-    .pipe(mocha({ istanbul: true }))
-  :
-  gulp.src(['test/**/*.test.js', '!test/index.test.js'])
-    .pipe(mocha({ istanbul: true }))
+    .pipe(mocha())
 
 fun.bundle = () =>
   gulp.src('src/entry.js')
