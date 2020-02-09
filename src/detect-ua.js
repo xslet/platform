@@ -42,6 +42,11 @@ function detectUA(useragent) {
     return ua;
   }
 
+  if ((version = getVersion(useragent, 'EDG'))) {
+    setNameAndVersion(ua, candids, 'EDGE', version);
+    return ua;
+  }
+
   if ((version = getVersion(useragent, 'MSIE'))) {
     setNameAndVersion(ua, candids, 'MSIE', version);
     return ua;

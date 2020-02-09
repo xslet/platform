@@ -43,15 +43,15 @@ This package provides API documents on [Github.io](https://xslet.github.io/platf
 
 This package has been checked the behavior by using [this pages](https://xslet.github.io/platform/test.html) on the following platforms: 
 
-| Platform  | Chrome | Firefox | Vivaldi | Safari |  Edge  | IE11   |
-|:---------:|:------:|:-------:|:-------:|:------:|:------:|:------:| 
-| macOS     |&#x25ef;|&#x25ef; |&#x25ef; |&#x25ef;|   --   |   --   |
-| Windows10 |&#x25ef;|&#x25ef; |&#x25ef; |   --   |&#x25ef;|&#x25ef;|
-| Linux     |&#x25ef;|&#x25ef; |&#x25ef; |   --   |   --   |   --   |
+| Platform  | Chrome | Firefox | Safari |  Edge  | IE11   |
+|:---------:|:------:|:-------:|:------:|:------:|:------:| 
+| macOS     |&#x25ef;|&#x25ef; |&#x25ef;|&#x25ef;|   --   |
+| Windows10 |&#x25ef;|&#x25ef; |   --   |&#x25ef;|&#x25ef;|
+| Linux     |&#x25ef;|&#x25ef; |   --   |&#x25ef;|   --   |
 
 ##License
 
-Copyright (C) 2016-2019 Takayuki Sato
+Copyright (C) 2016-2020 Takayuki Sato
 
 This program is free software under [MIT][mit-url] License.
 See the file LICENSE in this distribution for more details.

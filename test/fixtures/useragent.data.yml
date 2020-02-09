@@ -1,17 +1,64 @@
-- id: ''
-  ua: ['UNKNOWN', '']
-  os: ['UNKNOWN', '']
+- id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36 Edg/80.0.361.48'
+  ua: ['EDGE', '80']
+  os: ['MACOS', '10.15']
+
+- id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36 Edg/79.0.309.71'
+  ua: ['EDGE', '79']
+  os: ['MACOS', '10.15']
+
+- id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15'
+  ua: ['SAFARI', '13']
+  os: ['MACOS', '10.15']
+
+- id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36'
+  ua: ['CHROME', '80']
+  os: ['MACOS', '10.15']
+
+- id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0'
+  ua: ['FIREFOX', '72']
+  os: ['MACOS', '10.15']
+
+#- id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.131 Safari/537.36'
+#  ua: ['VIVALDI', '2']
+#  os: ['MACOS', '10.15']
   
-- id: 'AAA BBB CCC 12.3'
-  ua: ['UNKNOWN', '']
-  os: ['UNKNOWN', '']
-  
-  
+- id: 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko'
+  ua: ['MSIE', '11']
+  os: ['WINNT', '10.0']
+
+- id: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763'
+  ua: ['EDGE', '18']
+  os: ['WINNT', '10.0']
+
+- id: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0'
+  ua: ['FIREFOX', '72']
+  os: ['WINNT', '10.0']
+
+- id: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36'
+  ua: ['CHROME', '80']
+  os: ['WINNT', '10.0']
+
+#- id: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.131 Safari/537.36'
+#  ua: ['VIVALDI', '79']
+#  os: ['WINNT', '10.0']
+
 - id: 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586'
   ua: ['EDGE', '13']
   os: ['WINNT', '10.0']
-  
-  
+
+- id: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'
+  ua: ['FIREFOX', '68']
+  os: ['LINUX', '']
+
+- id: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36'
+  ua: ['CHROME', '80']
+  os: ['LINUX', '']
+
+#- id: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.131 Safari/537.36'
+#  ua: ['VIVALDI', '79']
+#  os: ['LINUX', '']
+
+
 - id: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586'
   ua: ['EDGE', '13']
   os: ['WINNT', '10.0']
@@ -985,3 +1032,12 @@
 - id: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1'
   ua: ['PHANTOMJS', '2']
   os: ['MACOS', '']
+
+- id: ''
+  ua: ['UNKNOWN', '']
+  os: ['UNKNOWN', '']
+  
+- id: 'AAA BBB CCC 12.3'
+  ua: ['UNKNOWN', '']
+  os: ['UNKNOWN', '']
+  
